@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body>
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class='container'>
     <div class="navbar-header">
@@ -39,8 +40,12 @@
   </div>
 </nav>
 
-  <body>
-   
+  
+      <div class="container">
+        <% flash.each do |type, msg| %>
+          <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+        <% end %>
+      </div>
     <%= yield %>
     
   </body>
